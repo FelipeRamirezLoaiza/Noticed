@@ -1,0 +1,168 @@
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+header:hover {
+    background-color: #838181;
+}
+
+header .menu-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header .logo img {
+    height: 70px;
+    margin: 0;
+    margin-left: 0px;
+    transition: transform 0.1s;
+}
+
+header .logo img:hover {
+    transform: scale(1.09); 
+}
+
+header nav ul {
+    display: flex;
+    list-style: none; 
+    margin-left: 200px;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+header nav ul li a:hover {
+    color: #000000;
+}
+
+header nav ul li a img {
+    height: 20px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.body-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre imágenes */
+    padding: 20px;
+    text-align: center
+}
+
+/*Estilos de la sección de productos*/
+.productos {
+    background: #333;
+}
+
+.productos .product{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    align-items: center;
+    gap: 10px; /* Espacio entre imágenes */
+    padding: 20px;
+}
+
+.productos .product img{
+    width: 80%;
+    padding: 20px;
+    border-radius: 20% 15%;
+    transition: transform 0.1s;
+}
+
+.productos .product img:hover{
+    transform: scale(1.09);
+}
+
+/*Estilos del pie de página*/
+.footer {
+    background-color: #575656;
+    border-top: 1px solid #ddd;
+    padding: 40px 20px;
+}
+
+.footer-txt {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+.footer-txt div {
+    flex: 1 1 30%;
+    margin: 20px 10px;
+}
+
+.footer-txt a {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.siguenos img {
+    transition: transform 0.1s;
+    width: 24px;
+}
+
+.footer-txt img:hover {
+    transform: scale(1.2);
+}
+
+.siguenos h2,
+.somos h2,
+.ayuda h2 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 0px;
+    text-transform: uppercase;
+}
+
+.somos a,
+.ayuda a {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    color: #b8b7b7;
+    text-decoration: none;
+}
+
+.somos a:hover,
+.ayuda a:hover {
+    color: #ffffff;
+}
+
+.termino a {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    color: #b8b7b7;
+    margin: 0 40px;
+    margin-top: 40px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    text-decoration: none;
+    transition: transform 0.1s;
+}
+
+.termino a:hover {
+    transform: scale(1.09);
+    text-decoration: underline;
+    color: #ffffff;
+}
