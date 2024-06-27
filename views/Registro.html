@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="icon" type="image/png" href="/NOTICED/assets/img/dominio.png">
+    <link rel="stylesheet" type="text/css" href="/NOTICED/assets/css/StyleRegistro.css?v=1.0">
+</head>
+<header>
+    <div class="menu-container">
+        <a href="/NOTICED/Index.html" class="logo"><img src="/NOTICED/assets/img/logo.png"></a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="/NOTICED/Index.html"><img src="/NOTICED/assets/img/home.png" alt=""></a></li>
+                <li><a href="/NOTICED/views/layout/Tienda.html">Tienda</a></li>
+                <li><a href="/NOTICED/views/layout/Nosotros.html">Nosotros</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<body>
+    <div class="container">
+        <div class="form-background">
+            <h1>REGISTRARSE</h1>
+            <form action="/Spirit_web/controllers/InsertarUsuario.php" method="post">
+                <input type="email" name="Email" id="email" placeholder="Correo electrónico">
+                <br>
+                <input type="password" name="contrasena" id="clave" placeholder="Contraseña">
+                <h2>Mínimo 12 caracteres</h2>
+                <h2>Debe contener una mayúscula</h2>
+                <h2>Debe contener un Número</h2>
+                <input type="password" name="confirm" id="confirmClave" placeholder="Confirmar contraseña">
+                <br><br>
+                <input type="submit" value="Registrarse" onclick="validacion()">
+                <div class="login">
+                    <p>¿Ya tienes una cuenta?&nbsp;&nbsp;&nbsp;<a href="/NOTICED/views/layout/Inicio.html">Iniciar sesión</a></p><br>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        function validacion(){
+            let correo = document.getElementById('email').value;
+            let clave = document.getElementById('clave').value;
+            let confirmClave = document.getElementById('confirmClave').value;
+            if(clave == "" || correo == "" || confirmClave == ""){
+                alert ('Correo o contraseña vacia, debe diligenciar todos los campos');
+                return; // Salir de la función
+            }
+
+            let correoRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!correoRegex.test(correo)) {
+                alert('El correo electrónico no es válido, debe contener "@" y un dominio válido como "gmail.com"');
+                return; // Salir de la función
+            }
+
+            if (clave !== confirmClave) {
+                alert('Las contraseñas no coinciden');
+                return; // Salir de la función
+            }
+
+            if(clave.length < 12){
+                alert('La contraseña debe tener como mínimo 12 caracteres');
+                return; // Salir de la función
+            }
+
+            let contieneMayuscula = false;
+            for (let i = 0; i < clave.length; i++) {
+                let caracter = clave.charAt(i);
+                if (caracter >= 'A' && caracter <= 'Z') {
+                    contieneMayuscula = true;
+                    break; // Salir del bucle porque encontramos una mayúscula
+                }
+            }
+
+            let contieneNumero = /\d/.test(clave); // \d es una expresión regular que busca dígitos
+            if (contieneMayuscula && contieneNumero) {
+                    window.open("http://www.google.com");
+            }else if(!contieneMayuscula){
+                alert('La contraseña debe contener por lo menos una mayúscula');
+            }
+            if(!contieneNumero){
+                alert('La contraseña debe contener por lo menos un número');
+            }
+        };
+    </script>
+</body>
+<footer class="footer container">
+    <div class="footer-txt">
+        <br>
+        <div class="somos">
+            <h2>Quiénes somos</h2><br>
+            <a href="#">Cultura</a><br><br>
+            <a href="#">Nuestro equipo</a><br><br>
+        </div>
+        <div class="ayuda">
+            <h2>Ayuda</h2><br>
+            <a href="#">Envíos</a><br><br>
+            <a href="#">Devoluciones y garantías</a><br><br>
+            <a href="#">Preguntas frecuentes</a>
+        </div>
+        <div class="siguenos">
+            <h2>Siguenos</h2><br>
+            <a href="#"><img src="/NOTICED/assets/img/social2.svg" alt=""></a>
+            <a href="#"><img src="/NOTICED/assets/img/social1.svg" alt=""></a>
+            <a href="#"><img src="/NOTICED/assets/img/social4.svg" alt=""></a>
+        </div>
+        <div class="termino">
+            <a href="#">Términos y condiciones</a>
+            <a href="#">Política de privacidad</a>
+            <a href="#">Superintendencia</a>
+        </div>
+    </div>
+</footer>
+</html>
