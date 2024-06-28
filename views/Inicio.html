@@ -25,16 +25,14 @@
     <div class="container">
         <div class="form-background">
             <h1>INICIAR SESIÓN</h1><br><br>
-            <form action="/Spirit_Web/views/VariablesSesion.php" method="post">
-                <input type="email" name="correo" id="email" placeholder="Correo electrónico">
-                <br>
-                <input type="password" name="contraseña" id="clave" placeholder="Contraseña">
-                <br><br><br><br><br>
-                <input type="submit" value="Iniciar Sesion" onclick="validacion()">
-                <div class="login">
-                    <p>¿No tienes cuenta?&nbsp;&nbsp;&nbsp;<a href="/NOTICED/views/Registro.html">Registrarse</a></p><br>
-                </div>
-            </form>
+            <input type="email" name="correo" id="email" placeholder="Correo electrónico">
+            <br>
+            <input type="password" name="contraseña" id="clave" placeholder="Contraseña">
+            <br><br><br><br><br>
+            <input type="submit" value="Iniciar Sesion" onclick="validacion()">
+            <div class="login">
+                <p>¿No tienes cuenta?&nbsp;&nbsp;&nbsp;<a href="/NOTICED/views/Registro.html">Registrarse</a></p><br>
+            </div>
         </div>
         <script>
             function validacion(){
