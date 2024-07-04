@@ -24,66 +24,88 @@
     <div class="container">
         <div class="form-background">
             <h1>REGISTRARSE</h1>
-            <input type="email" name="Email" id="email" placeholder="Correo electrónico">
-            <br>
-            <input type="password" name="contrasena" id="clave" placeholder="Contraseña">
-            <h2>Mínimo 12 caracteres</h2>
-            <h2>Debe contener una mayúscula</h2>
-            <h2>Debe contener un Número</h2>
-            <input type="password" name="confirm" id="confirmClave" placeholder="Confirmar contraseña">
-            <br><br>
-            <input type="submit" value="Registrarse" onclick="validacion()">
-            <div class="login">
-                <p>¿Ya tienes una cuenta?&nbsp;&nbsp;&nbsp;<a href="/NOTICED/views/Inicio.html">Iniciar sesión</a></p><br>
-            </div>
+            <form id="register">
+                <input type="email" name="Email" id="email" placeholder="Correo electrónico">
+                <br>
+                <input type="password" name="contrasena" id="clave" placeholder="Contraseña">
+                <h2>Mínimo 12 caracteres</h2>
+                <h2>Debe contener una mayúscula</h2>
+                <h2>Debe contener un Número</h2>
+                <input type="password" name="confirm" id="confirmClave" placeholder="Confirmar contraseña">
+                <br><br>
+                <input type="submit" value="Registrarse">
+                <div class="login">
+                    <p>¿Ya tienes una cuenta?&nbsp;&nbsp;&nbsp;<a href="/NOTICED/views/Inicio.html">Iniciar sesión</a></p><br>
+                </div>
+            </form>
+            <script>
+                document.getElementById('register').addEventListener('submit', async (e) => {
+                    e.preventDefault();
+
+                    const email = document.getElementById('email').value;
+                    const password = document.getElementById('clave').value;
+                    const confirmPassword = document.getElementById('confirmClave').value;
+
+                    //Validaciones
+                    if(password == "" || email == "" || confirmPassword == ""){
+                        alert ('Correo o contraseña vacia, debe diligenciar todos los campos');
+                        return; // Salir de la función
+                    }
+
+                    let correoRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!correoRegex.test(email)) {
+                        alert('El correo electrónico no es válido, debe contener "@" y un dominio válido como "gmail.com"');
+                        return; // Salir de la función
+                    }
+            
+                    if (password !== confirmPassword) {
+                        alert('Las contraseñas no coinciden');
+                        return; // Salir de la función
+                    }
+
+                    if(password.length < 12){
+                        alert('La contraseña debe tener como mínimo 12 caracteres');
+                        return; // Salir de la función
+                    }
+
+                    let contieneMayuscula = password.split('').some(caracter => caracter >= 'A' && caracter <= 'Z');
+                    let contieneNumero = /\d/.test(password); // \d es una expresión regular que busca dígitos
+
+                    if (contieneMayuscula && contieneNumero) {
+                        // La contraseña es válida
+                    } else {
+                        if (!contieneMayuscula) {
+                            alert('La contraseña debe contener por lo menos una mayúscula');
+                        }
+                        if (!contieneNumero) {
+                            alert('La contraseña debe contener por lo menos un número');
+                        }
+                    }
+            
+                    //Envío de datos
+                    try {
+                        const response = await fetch('/register', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({ email, password }),
+                        });
+                        
+                        if (response.ok) {
+                            alert('Usuario registrado con éxito');
+                        } else {
+                            const errorData = await response.json();
+                            alert(`Error en el registro: ${errorData.error}`);
+                        }
+                    } catch (error) {
+                        alert('Error en el registro');
+                        console.error('Error:', error);
+                    }
+                });
+            </script>
         </div>
     </div>
-    <script>
-        function validacion(){
-            let correo = document.getElementById('email').value;
-            let clave = document.getElementById('clave').value;
-            let confirmClave = document.getElementById('confirmClave').value;
-            if(clave == "" || correo == "" || confirmClave == ""){
-                alert ('Correo o contraseña vacia, debe diligenciar todos los campos');
-                return; // Salir de la función
-            }
-
-            let correoRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!correoRegex.test(correo)) {
-                alert('El correo electrónico no es válido, debe contener "@" y un dominio válido como "gmail.com"');
-                return; // Salir de la función
-            }
-
-            if (clave !== confirmClave) {
-                alert('Las contraseñas no coinciden');
-                return; // Salir de la función
-            }
-
-            if(clave.length < 12){
-                alert('La contraseña debe tener como mínimo 12 caracteres');
-                return; // Salir de la función
-            }
-
-            let contieneMayuscula = false;
-            for (let i = 0; i < clave.length; i++) {
-                let caracter = clave.charAt(i);
-                if (caracter >= 'A' && caracter <= 'Z') {
-                    contieneMayuscula = true;
-                    break; // Salir del bucle porque encontramos una mayúscula
-                }
-            }
-
-            let contieneNumero = /\d/.test(clave); // \d es una expresión regular que busca dígitos
-            if (contieneMayuscula && contieneNumero) {
-                    window.open("http://www.google.com");
-            }else if(!contieneMayuscula){
-                alert('La contraseña debe contener por lo menos una mayúscula');
-            }
-            if(!contieneNumero){
-                alert('La contraseña debe contener por lo menos un número');
-            }
-        };
-    </script>
 </body>
 <footer class="footer container">
     <div class="footer-txt">

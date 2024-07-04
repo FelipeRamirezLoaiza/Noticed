@@ -25,55 +25,73 @@
     <div class="container">
         <div class="form-background">
             <h1>INICIAR SESIÓN</h1><br><br>
-            <input type="email" name="correo" id="email" placeholder="Correo electrónico">
-            <br>
-            <input type="password" name="contraseña" id="clave" placeholder="Contraseña">
-            <br><br><br><br><br>
-            <input type="submit" value="Iniciar Sesion" onclick="validacion()">
-            <div class="login">
-                <p>¿No tienes cuenta?&nbsp;&nbsp;&nbsp;<a href="/NOTICED/views/Registro.html">Registrarse</a></p><br>
-            </div>
-        </div>
-        <script>
-            function validacion(){
-            let correo = document.getElementById('email').value;
-            let clave = document.getElementById('clave').value;
-            if(clave == "" || correo == ""){
-                alert ('Correo o contraseña vacia, debe diligenciar todos los campos');
-                return; // Salir de la función
-            }
-        
-            let correoRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!correoRegex.test(correo)) {
-                alert('El correo electrónico no es válido, debe contener "@" y un dominio válido como "gmail.com"');
-                return; // Salir de la función
-            }
-        
-            if(clave.length < 12){
-                alert('La contraseña debe tener como mínimo 12 caracteres');
-                return; // Salir de la función
-            }
-        
-            let contieneMayuscula = false;
-            for (let i = 0; i < clave.length; i++) {
-                let caracter = clave.charAt(i);
-                if (caracter >= 'A' && caracter <= 'Z') {
-                    contieneMayuscula = true;
-                    break; // Salir del bucle porque encontramos una mayúscula
+            <form id="loginForm">
+                <input type="email" name="correo" id="email" placeholder="Correo electrónico">
+                <br>
+                <input type="password" name="contraseña" id="clave" placeholder="Contraseña">
+                <br><br><br><br><br>
+                <input type="submit" value="Iniciar Sesion">
+                <div class="login">
+                    <p>¿No tienes cuenta?&nbsp;&nbsp;&nbsp;<a href="/NOTICED/views/Registro.html">Registrarse</a></p><br>
+                </div>
+            </form>
+            <script>
+                document.getElementById('loginForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+    
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('clave').value;
+    
+                //Validaciones
+                if(password == "" || email == ""){
+                    alert ('Correo o contraseña vacia, debe diligenciar todos los campos');
+                    return; // Salir de la función
                 }
-            }
-        
-            let contieneNumero = /\d/.test(clave); // \d es una expresión regular que busca dígitos
-            if (contieneMayuscula && contieneNumero) {
-                window.open("http://www.google.com");
-            }else if (clave != "" && contieneMayuscula == false) {
-                    alert('La contraseña debe contener por lo menos una mayúscula');
-            }
-            if (!contieneNumero) {
-                    alert('La contraseña debe contener por lo menos un número');
-            }
-        };
-        </script>
+            
+                let correoRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!correoRegex.test(email)) {
+                    alert('El correo electrónico no es válido, debe contener "@" y un dominio válido como "gmail.com"');
+                    return; // Salir de la función
+                }
+            
+                if(password.length < 12){
+                    alert('La contraseña debe tener como mínimo 12 caracteres');
+                    return; // Salir de la función
+                }
+    
+                let contieneMayuscula = password.split('').some(caracter => caracter >= 'A' && caracter <= 'Z');
+                let contieneNumero = /\d/.test(password); // \d es una expresión regular que busca dígitos
+
+                if (contieneMayuscula && contieneNumero) {
+                    // La contraseña es válida
+                } else {
+                    if (!contieneMayuscula) {
+                        alert('La contraseña debe contener por lo menos una mayúscula');
+                    }
+                    if (!contieneNumero) {
+                        alert('La contraseña debe contener por lo menos un número');
+                    }
+                }
+    
+                //Envío de datos
+                const response = await fetch('/login', {
+                    method: 'POST',
+                    headers: {
+                    'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, password }),
+                });
+    
+                if (response.ok) {
+                    const data = await response.json();
+                    alert('Inicio de sesión exitoso');
+                    console.log('Usuario:', data.user);
+                } else {
+                    alert('Email o contraseña incorrectos');
+                }
+                });
+            </script>
+        </div>
     </div>
 </body>
 <footer class="footer container">
