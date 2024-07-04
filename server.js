@@ -1,17 +1,22 @@
-const express = require('express');
-const { PrismaClient } = require('@prisma/client');
-const bodyParser = require('body-parser');
-const bcrypt = require('bcrypt');
+import express from 'express';
+import { PrismaClient } from '@prisma/client';
+import bodyParser from 'body-parser';
+import bcrypt from 'bcryptjs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
 const prisma = new PrismaClient();
 const app = express();
-const path = require('path');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Añadir antes de definir las rutas
 app.use(express.static(path.join(__dirname, 'views')));
 
 // Ruta para servir el archivo HTML
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'Inicio.html'));
+  res.sendFile(path.join(__dirname, 'views', 'Registro.html'));
 });
 
 app.use(bodyParser.json());
