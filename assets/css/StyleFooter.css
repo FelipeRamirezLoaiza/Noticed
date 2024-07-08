@@ -1,0 +1,80 @@
+/*Estilos del pie de página*/
+.footer {
+    background-color: #575656;
+    color: #b8b7b7;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    padding: 40px 20px;
+}
+
+.footer-txt {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+/*Estilo de sección dentro del pie de página*/
+.footer-txt div {
+    flex: 1 1 30%;
+    margin: 20px 10px;
+}
+
+.footer-txt a {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.siguenos img {
+    transition: transform 0.1s;
+    width: 24px;
+}
+
+.footer-txt img:hover {
+    transform: scale(1.2);
+}
+
+.siguenos a {
+    margin: 0 10px;
+}
+
+.siguenos h2,
+.somos h2,
+.ayuda h2 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 0px;
+    text-transform: uppercase;
+}
+
+.somos a,
+.ayuda a {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    color: #b8b7b7;
+    text-decoration: none;
+}
+
+.somos a:hover,
+.ayuda a:hover {
+    color: #ffffff;
+}
+
+.termino a {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    color: #b8b7b7;
+    margin: 0 40px;
+    margin-top: 40px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    text-decoration: none;
+    transition: transform 0.1s;
+}
+
+.termino a:hover {
+    transform: scale(1.09);
+    text-decoration: underline;
+    color: #ffffff;
+}
