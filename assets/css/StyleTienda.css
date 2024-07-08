@@ -94,9 +94,11 @@ body {
     transform: scale(1.09);
 }
 
-/*Estilos del pie de página*/
+/* Estilos del pie de página */
 .footer {
     background-color: #575656;
+    color: #b8b7b7;
+    text-align: center;
     border-top: 1px solid #ddd;
     padding: 40px 20px;
 }
@@ -107,6 +109,8 @@ body {
     max-width: 1500px;
     margin: 0 auto;
 }
+
+/*Estilo de sección dentro del pie de página*/
 .footer-txt div {
     flex: 1 1 30%;
     margin: 20px 10px;
@@ -124,6 +128,10 @@ body {
 
 .footer-txt img:hover {
     transform: scale(1.2);
+}
+
+.siguenos a {
+    margin: 0 10px;
 }
 
 .siguenos h2,
