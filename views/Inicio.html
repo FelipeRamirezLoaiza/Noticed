@@ -28,32 +28,37 @@
             <form id="login">
                 <input type="email" name="correo" id="email" placeholder="Correo electrónico">
                 <br>
-                <input type="password" name="contraseña" id="clave" placeholder="Contraseña">
+                <div class="password-container">
+                    <input type="password" name="contraseña" id="clave" placeholder="Contraseña">
+                    <button type="button" id="toggle-password" class="password-toggle-button">
+                        <i class='bx bx-show'></i>
+                    </button>
+                </div>
                 <br><br><br><br><br>
                 <input type="submit" value="Iniciar Sesion">
                 <div class="login">
                     <p>¿No tienes cuenta?&nbsp;&nbsp;&nbsp;<a href="/NOTICED/views/Registro.html">Registrarse</a></p><br>
                 </div>
             </form>
-            <script>
+            <script> 
                 document.getElementById('login').addEventListener('submit', async (e) => {
                     e.preventDefault();
-
+        
                     const email = document.getElementById('email').value;
                     const password = document.getElementById('clave').value;
-
+        
                     //Validaciones
                     if(password == "" || email == ""){
                         alert ('Correo o contraseña vacia, debe diligenciar todos los campos');
                         return; // Salir de la función
                     }
-
+        
                     let correoRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                     if (!correoRegex.test(email)) {
                         alert('El correo electrónico no es válido, debe contener "@" y un dominio válido como "gmail.com"');
                         return; // Salir de la función
                     }
-
+        
                     //Envío de datos
                     try {
                         const response = await fetch('/login', {
@@ -63,7 +68,7 @@
                             },
                             body: JSON.stringify({ email, password }),
                         });
-
+        
                         if (response.ok) {
                             const data = await response.json();
                             alert('Inicio de sesión exitoso');
@@ -75,6 +80,16 @@
                         alert('Error en el Inicio');
                         console.error('Error:', error);
                     }
+                });
+        
+                //Visibilidad de contraseña
+                document.getElementById('toggle-password').addEventListener('click', () => {
+                    const passwordInput = document.getElementById('clave');
+                    const passwordToggle = document.getElementById('toggle-password');
+                    const isPasswordVisible = passwordInput.type === 'text';
+        
+                    passwordInput.type = isPasswordVisible ? 'password' : 'text';
+                    passwordToggle.innerHTML = isPasswordVisible ? "<i class='bx bx-show'></i>" : "<i class='bx bx-hide'></i>";
                 });
             </script>
         </div>

@@ -11,17 +11,17 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Añadir antes de definir las rutas
+// Configurar middleware
 app.use(express.static(path.join(__dirname, 'views')));
-
-// Ruta para servir el archivo HTML
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'Registro.html'));
-});
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Ruta para servir el archivo HTML
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'Inicio.html'));
+});
+
+// Ruta para registro de usuario
 app.post('/register', async (req, res) => {
   const { email, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
@@ -39,6 +39,7 @@ app.post('/register', async (req, res) => {
   }
 });
 
+// Ruta para inicio de sesión
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
     
@@ -54,6 +55,7 @@ app.post('/login', async (req, res) => {
     }
   });
 
+// Iniciar servidor
 app.listen(3000, () => {
   console.log('Server is running on http://localhost:3000');
 });

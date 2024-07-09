@@ -84,6 +84,34 @@ header nav ul li a img {
     padding: 30px;
 }
 
+.password-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.password-input {
+    flex: 1;
+    padding-right: 40px; /* Add space to the right for the toggle button */
+}
+
+.password-toggle-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    padding: 0;
+    color: #000;
+}
+
+.password-toggle-button i {
+    font-size: 20px;
+}
+
 .form-background {
     background-color: #ffffff;
     padding: 50px;
