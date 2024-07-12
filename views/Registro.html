@@ -7,19 +7,15 @@
     <link rel="icon" type="image/png" href="/assets/img/dominio.png">
     <link rel="stylesheet" type="text/css" href="/assets/css/StyleRegistro.css">
 </head>
-<header>
-    <div class="menu-container">
-        <a href="/Index.html" class="logo"><img src="/assets/img/logo.png"></a>
-        <nav class="navbar">
-            <ul>
-                <li><a href="/Index.html"><img src="/assets/img/home.png" alt=""></a></li>
-                <li><a href="/views/Tienda.html">Tienda</a></li>
-                <li><a href="/views/Nosotros.html">Nosotros</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+<div id="header-placeholder"></div>
+
+    <script>
+        fetch('/views/layout/Header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+    </script>
 <body>
     <div class="container">
         <div class="form-background">

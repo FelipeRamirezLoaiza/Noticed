@@ -7,19 +7,15 @@
     <link rel="icon" type="image/png" href="/assets/img/dominioo.png">
     <link rel="stylesheet" href="/assets/css/StyleTienda.css?v=1.0">  
 </head>
-<header>
-    <div class="menu-container">
-        <a href="/Index.html" class="logo"><img src="/assets/img/logo.png"></a>
-        <nav class="navbar">
-            <ul>
-                <li><a href="/Index.html"><img src="/assets/img/home.png" alt=""></a></li>
-                <li><a href="/views/Inicio.html"><img src="/assets/img/acceso.svg" alt=""></a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+<div id="header-placeholder"></div>
+
+    <script>
+        fetch('/views/layout/Header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+    </script>
 <body>
     <section class="productos">
         <div class="product">

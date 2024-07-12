@@ -7,23 +7,15 @@
     <link rel="icon" type="image/png" href="/assets/img/dominioo.png">
     <link rel="stylesheet" href="/assets/css/StyleIndex.css?v=1.0">
 </head>
-<header>
-    <div class="menu-container">
-        <a href="/Index.html" class="logo"><img src="/assets/img/logo.png"></a>
-        <input type="checkbox" id="menu" />
-        <label for="menu">
-            <img class="menu-icono" src="/assets/img/menu.png" alt="">
-        </label>
-        <nav class="navbar">
-            <ul>
-                <li><a href="/views/Inicio.html"><img src="/assets/img/acceso.svg" alt=""></a></li>
-                <li><a href="/views/Tienda.html">Tienda</a></li>
-                <li><a href="/views/Nosotros.html">Nosotros</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+<div id="header-placeholder"></div>
+
+    <script>
+        fetch('/views/layout/Header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+    </script>
 <body>
     <div class="body-content container">
         <h2>¡ Se alguien en la multitud !</h2><br>
