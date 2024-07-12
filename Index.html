@@ -4,24 +4,21 @@
     <meta charset="utf-8" />
     <title>Noticed</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
-    <link rel="icon" type="image/png" href="/NOTICED/assets/img/dominioo.png">
-    <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-    <!-- Demo styles -->
-    <link rel="stylesheet" href="/NOTICED/assets/css/StyleIndex.css?v=1.0">
+    <link rel="icon" type="image/png" href="/assets/img/dominioo.png">
+    <link rel="stylesheet" href="/assets/css/StyleIndex.css?v=1.0">
 </head>
 <header>
     <div class="menu-container">
-        <a href="/NOTICED/Index.html" class="logo"><img src="/NOTICED/assets/img/logo.png"></a>
+        <a href="/Index.html" class="logo"><img src="/assets/img/logo.png"></a>
         <input type="checkbox" id="menu" />
         <label for="menu">
-            <img class="menu-icono" src="assets/img/menu.png" alt="">
+            <img class="menu-icono" src="/assets/img/menu.png" alt="">
         </label>
         <nav class="navbar">
             <ul>
-                <li><a href="/NOTICED/views/Inicio.html"><img src="/NOTICED/assets/img/acceso.svg" alt=""></a></li>
-                <li><a href="/NOTICED/views/Tienda.html">Tienda</a></li>
-                <li><a href="/NOTICED/views/Nosotros.html">Nosotros</a></li>
+                <li><a href="/views/Inicio.html"><img src="/assets/img/acceso.svg" alt=""></a></li>
+                <li><a href="/views/Tienda.html">Tienda</a></li>
+                <li><a href="/views/Nosotros.html">Nosotros</a></li>
                 <li><a href="#">Contacto</a></li>
             </ul>
         </nav>
@@ -30,16 +27,16 @@
 <body>
     <div class="body-content container">
         <h2>¡ Se alguien en la multitud !</h2><br>
-        <img class="imagen1" src="/NOTICED/assets/img/slider1.png" alt="">
-        <img class="imagen2" src="/NOTICED/assets/img/slider2.png" alt="">
-        <img class="imagen3" src="/NOTICED/assets/img/slider3.png" alt="">
+        <img class="imagen1" src="/assets/img/slider1.png" alt="">
+        <img class="imagen2" src="/assets/img/slider2.png" alt="">
+        <img class="imagen3" src="/assets/img/slider3.png" alt="">
         <a href="#" class="enlace1">Busos</a>
         <a href="#" class="enlace2">Camisetas</a>
         <a href="#" class="enlace3">Cargos</a>
         <br><br><br><br>
         <section class="fondos">
             <div class="fondo">
-                <img src="/NOTICED/assets/img/fondo.png" alt=""></a>  
+                <img src="/assets/img/fondo.png" alt=""></a>  
             </div>
         </section>
     </div>
@@ -50,14 +47,14 @@
             <p>La mejor <br> <span>Tienda de ropa</span> </p>
         </div>
         <div class="info container">
-            <a href="/NOTICED/views/Nosotros.html" class="enlace">Ver más</a><br><br><br><br><br><br><br><br>
+            <a href="/views/Nosotros.html" class="enlace">Ver más</a><br><br><br><br><br><br><br><br>
         </div>
     </section>
 </body>
 <div id="footer-placeholder"></div>
 
     <script>
-        fetch('/NOTICED/views/layout/Footer.html')
+        fetch('/views/layout/Footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer-placeholder').innerHTML = data;

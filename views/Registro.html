@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-    <link rel="icon" type="image/png" href="/NOTICED/assets/img/dominio.png">
-    <link rel="stylesheet" type="text/css" href="/NOTICED/assets/css/StyleRegistro.css">
+    <link rel="icon" type="image/png" href="/assets/img/dominio.png">
+    <link rel="stylesheet" type="text/css" href="/assets/css/StyleRegistro.css">
 </head>
 <header>
     <div class="menu-container">
-        <a href="/NOTICED/Index.html" class="logo"><img src="/NOTICED/assets/img/logo.png"></a>
+        <a href="/Index.html" class="logo"><img src="/assets/img/logo.png"></a>
         <nav class="navbar">
             <ul>
-                <li><a href="/NOTICED/Index.html"><img src="/NOTICED/assets/img/home.png" alt=""></a></li>
-                <li><a href="/NOTICED/views/Tienda.html">Tienda</a></li>
-                <li><a href="/NOTICED/views/Nosotros.html">Nosotros</a></li>
+                <li><a href="/Index.html"><img src="/assets/img/home.png" alt=""></a></li>
+                <li><a href="/views/Tienda.html">Tienda</a></li>
+                <li><a href="/views/Nosotros.html">Nosotros</a></li>
                 <li><a href="#">Contacto</a></li>
             </ul>
         </nav>
@@ -35,7 +35,7 @@
                 <br><br>
                 <input type="submit" value="Registrarse">
                 <div class="login">
-                    <p>¿Ya tienes una cuenta?&nbsp;&nbsp;&nbsp;<a href="/NOTICED/views/Inicio.html">Iniciar sesión</a></p><br>
+                    <p>¿Ya tienes una cuenta?&nbsp;&nbsp;&nbsp;<a href="/views/Inicio.html">Iniciar sesión</a></p><br>
                 </div>
             </form>
             <script>
@@ -113,7 +113,7 @@
 <div id="footer-placeholder"></div>
 
     <script>
-        fetch('/NOTICED/views/layout/Footer.html')
+        fetch('/views/layout/Footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer-placeholder').innerHTML = data;

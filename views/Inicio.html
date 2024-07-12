@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="icon" type="image/png" href="/NOTICED/assets/img/dominio.png">
-    <link rel="stylesheet" type="text/css" href="/NOTICED/assets/css/StyleInicio.css?v=1.0">
+    <link rel="icon" type="image/png" href="/assets/img/dominio.png">
+    <link rel="stylesheet" type="text/css" href="/assets/css/StyleInicio.css?v=1.0">
 </head>
 <header>
     <div class="menu-container">
-        <a href="/NOTICED/Index.html" class="logo"><img src="/NOTICED/assets/img/logo.png"></a>
+        <a href="/Index.html" class="logo"><img src="/assets/img/logo.png"></a>
         <nav class="navbar">
             <ul>
-                <li><a href="/NOTICED/Index.html"><img src="/NOTICED/assets/img/home.png" alt=""></a></li>
-                <li><a href="/NOTICED/views/Tienda.html">Tienda</a></li>
-                <li><a href="/NOTICED/views/Nosotros.html">Nosotros</a></li>
+                <li><a href="/Index.html"><img src="/assets/img/home.png" alt=""></a></li>
+                <li><a href="/views/Tienda.html">Tienda</a></li>
+                <li><a href="/views/Nosotros.html">Nosotros</a></li>
                 <li><a href="#">Contacto</a></li>
             </ul>
         </nav>
@@ -37,7 +37,7 @@
                 <br><br>
                 <input type="submit" value="Iniciar Sesion">
                 <div class="login">
-                    <p>¿Eres nuevo en Noticed?&nbsp;&nbsp;&nbsp;<a href="/NOTICED/views/Registro.html">Registrarse</a></p><br>
+                    <p>¿Eres nuevo en Noticed?&nbsp;&nbsp;&nbsp;<a href="/views/Registro.html">Registrarse</a></p><br>
                 </div>
             </form>
             <script> 
@@ -98,7 +98,7 @@
 <div id="footer-placeholder"></div>
 
     <script>
-        fetch('/NOTICED/views/layout/Footer.html')
+        fetch('/views/layout/Footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer-placeholder').innerHTML = data;
