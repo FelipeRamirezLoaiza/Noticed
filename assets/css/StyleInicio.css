@@ -19,37 +19,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0px 0;
-    text-align: center;
     padding: 30px;
-}
-
-.password-container {
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.password-input {
-    flex: 1;
-    padding-right: 40px; /* Add space to the right for the toggle button */
-}
-
-.password-toggle-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 20px;
-    padding: 0;
-    color: #000;
-}
-
-.password-toggle-button i {
-    font-size: 20px;
+    text-align: center;
 }
 
 .form-background {
@@ -60,9 +31,6 @@ body {
     max-width: 400px;
     width: 100%;
     text-align: center;
-    position: relative;
-    width: 100%;
-    
 }
 
 .form-background h1 {
@@ -73,7 +41,6 @@ body {
 .form-background input[type="email"],
 .form-background input[type="password"] {
     width: 100%;
-    padding-left: 30px;
     padding: 12px;
     margin: 8px 0;
     display: inline-block;

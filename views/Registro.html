@@ -102,6 +102,18 @@
                         }
                     }
                 });
+
+                //Visibilidad de contraseña
+                document.getElementById('toggle-password').addEventListener('click', () => {
+                    const passwordInput = document.getElementById('clave');
+                    const confirmPasswordInput = document.getElementById('confirmClave');
+                    const passwordToggle = document.getElementById('toggle-password');
+                    const isPasswordVisible = passwordInput.type === 'text';
+        
+                    passwordInput.type = isPasswordVisible ? 'password' : 'text';
+                    confirmPasswordInput.type = isPasswordVisible ? 'password' : 'text';
+                    passwordToggle.innerHTML = isPasswordVisible ? "<i class='bx bx-show'></i>" : "<i class='bx bx-hide'></i>";
+                });
             </script>
         </div>
     </div>
