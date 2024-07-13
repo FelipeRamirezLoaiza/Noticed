@@ -32,7 +32,6 @@ body {
     max-width: 400px;
     width: 100%;
     text-align: center;
-    position: relative;
 }
 
 .form-background h1 {
@@ -63,7 +62,11 @@ body {
     cursor: pointer;
 }
 
-h2 {
+.form-background input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+form h2 {
     font-family: Arial, sans-serif;
     font-size: 12px;
     color: #9c9c9c;
@@ -71,14 +74,10 @@ h2 {
     text-align: left;
 }
 
-h2::before {
+form h2::before {
     content: "-";
     margin-right: 5px;
     color: #9c9c9c;
-}
-
-.form-background input[type="submit"]:hover {
-    background-color: #0056b3;
 }
 
 .form-background .login {
