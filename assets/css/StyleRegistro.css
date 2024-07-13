@@ -24,6 +24,7 @@ body {
 }
 
 .form-background {
+    border: 1px solid #dbd8d8;
     background-color: #ffffff;
     padding: 50px;
     border-radius: 8px;

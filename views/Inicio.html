@@ -76,7 +76,6 @@
                 //Visibilidad de contraseña
                 document.getElementById('toggle-password').addEventListener('click', () => {
                     const passwordInput = document.getElementById('clave');
-                    const passwordToggle = document.getElementById('toggle-password');
                     const isPasswordVisible = passwordInput.type === 'text';
         
                     passwordInput.type = isPasswordVisible ? 'password' : 'text';

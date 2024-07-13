@@ -1,13 +1,10 @@
 /*Estilos del encabezado*/
 header {
+    border-bottom: 1px solid #dbd8d8;
     background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s;
     padding: 10px;
-}
-
-header:hover {
-    background-color: #838181;
 }
 
 header .menu-container{
@@ -44,7 +41,7 @@ header nav ul li {
 
 header nav ul li a {
     display: flex;
-    color: #333;
+    color: #727272;
     text-decoration: none;
     font-size: 18px;
 }
