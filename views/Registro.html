@@ -7,8 +7,9 @@
     <link rel="icon" type="image/png" href="/assets/img/dominio.png">
     <link rel="stylesheet" type="text/css" href="/assets/css/StyleRegistro.css">
 </head>
-<div id="header-placeholder"></div>
-
+<body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
     <script>
         fetch('/views/layout/Header.html')
             .then(response => response.text())
@@ -16,7 +17,6 @@
                 document.getElementById('header-placeholder').innerHTML = data;
             });
     </script>
-<body>
     <div class="container">
         <div class="form-background">
             <h1>REGISTRARSE</h1>
@@ -116,9 +116,8 @@
             </script>
         </div>
     </div>
-</body>
-<div id="footer-placeholder"></div>
-
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
     <script>
         fetch('/views/layout/Footer.html')
             .then(response => response.text())
@@ -126,4 +125,5 @@
                 document.getElementById('footer-placeholder').innerHTML = data;
             });
     </script>
+</body>
 </html>

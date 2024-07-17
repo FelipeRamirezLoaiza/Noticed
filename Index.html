@@ -7,8 +7,9 @@
     <link rel="icon" type="image/png" href="/assets/img/dominioo.png">
     <link rel="stylesheet" href="/assets/css/StyleIndex.css?v=1.0">
 </head>
-<div id="header-placeholder"></div>
-
+<body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
     <script>
         fetch('/views/layout/Header.html')
             .then(response => response.text())
@@ -16,7 +17,6 @@
                 document.getElementById('header-placeholder').innerHTML = data;
             });
     </script>
-<body>
     <h2>¡ Se alguien en la multitud !</h2><br>
     <div class="body-content container">
         <div class="image-container">
@@ -65,9 +65,8 @@
             <a href="/views/Nosotros.html" class="enlace">Ver más</a>
         </div>
     </section>
-</body>
-<div id="footer-placeholder"></div>
-
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
     <script>
         fetch('/views/layout/Footer.html')
             .then(response => response.text())
@@ -75,4 +74,5 @@
                 document.getElementById('footer-placeholder').innerHTML = data;
             });
     </script>
+</body>
 </html>
