@@ -27,6 +27,7 @@ h2 {
     margin-bottom: 0px; /*Espacio inferior entre elementos*/
     text-transform: uppercase;
     text-align: center;
+    padding-top: 100px;
 }
 
 .body-content .enlace1,
@@ -34,7 +35,7 @@ h2 {
 .body-content .enlace3 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /*Fuente del texto*/
     font-size: 16px; /*Tamaño de la fuente*/
-    top: 27.5%;
+    top: 40%;
     position: absolute;
     color: #555555; /*Color del texto*/
     margin-bottom: 0px; /*Espacio inferior entre elementos*/
@@ -45,98 +46,132 @@ h2 {
 .body-content .enlace2:hover,
 .body-content .enlace3:hover {
     color: #000000;
-    font-size: 22px;
+    font-size: 28px;
+    transform: translateX(-10px);
 }
 
 .body-content .enlace1 {
-    left: 200px;
+    left: 235px;
 }
 
 .body-content .enlace2 {
-    left: 622px;
+    left: 625px;
 }
 
 .body-content .enlace3 {
-    left: 1045px;
+    left: 1015px;
 }
 
 .body-content a{
     text-decoration: none;
 }
 
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Espacio entre las imágenes */
+}
+
+.image-container {
+    display: flex;
+    position: relative;
+    width: 350px;
+}
+
+.image1,
+.image3,
+.image5 {
+    position: relative;
+    width: 100%;
+}
+
+.image2,
+.image4,
+.image6 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.image1 img,
+.image3 img,
+.image5 img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.6s ease;
+}
+
+.image2 img,
+.image4 img,
+.image6 img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.image-container:hover .image2,
+.image-container:hover .image4,
+.image-container:hover .image6 {
+    opacity: 1;
+}
+
 /*Estilos de la sección del fondo*/
 .fondos .fondo img{
     position: relative;
-    left: -25px;
     width: 100%;
 }
+
 /*Estilos de la sección nosotros*/
 .nosotros {
-    background-color: #f0f0f0;
+    background-color: #f4f4f4;
     text-align: center;
-    position: relative;
-    left: 25px;
+}
+
+.nosotros-txt {
+    margin-bottom: 40px;
 }
 
 .nosotros h2 {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /*Fuente del texto*/
-    text-transform: uppercase;
-    font-size: 33px;
+    padding-top: 20px;
+    font-size: 2.5em;
+    color: #333;
+    margin: 0 0 20px;
 }
 
 .nosotros p {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /*Fuente del texto*/
-    font-size: 22px;
+    font-size: 1.5em;
+    color: #666;
+    margin: 0;
 }
 
-.nosotros span {
+.nosotros p span {
+    color: #666;
     font-weight: bold;
-    color: #007BFF;
 }
 
-.nosotros .info .enlace {
+.info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.enlace {
     display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
+    padding: 14px 20px;
     background-color: #007BFF;
     color: white;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 4px;
+    margin-bottom: 120px;
     transition: background-color 0.3s;
 }
 
-.nosotros .info .enlace:hover {
+.enlace:hover {
     background-color: #0056b3;
-}
-
-/*Estilos responsivos*/
-@media (max-width: 768px) {
-    header .menu {
-        flex-direction: column;
-    }
-
-    header .menu-icono {
-        display: block;
-    }
-
-    header nav ul {
-        flex-direction: column;
-        display: none;
-    }
-
-    header nav ul li {
-        margin: 10px 0;
-    }
-
-    header input[type="checkbox"]:checked ~ nav ul {
-        display: flex;
-    }
-
-    .body-content .swiper {
-        height: 300px;
-    }
-
-    .product {
-        flex: 1 1 100%;
-    }
 }
