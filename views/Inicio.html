@@ -38,19 +38,19 @@
                     const email = document.getElementById('email').value;
                     const password = document.getElementById('clave').value;
         
-                    //Validaciones
-                    if(password == "" || email == ""){
+                    // Validaciones
+                    if(password === "" || email === ""){
                         alert ('Correo o contraseña vacia, debe diligenciar todos los campos');
-                        return; // Salir de la función
+                        return;
                     }
         
                     let correoRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                     if (!correoRegex.test(email)) {
                         alert('El correo electrónico no es válido, debe contener "@" y un dominio válido como "gmail.com"');
-                        return; // Salir de la función
+                        return;
                     }
         
-                    //Envío de datos
+                    // Envío de datos
                     try {
                         const response = await fetch('/login', {
                             method: 'POST',
@@ -73,7 +73,7 @@
                     }
                 });
         
-                //Visibilidad de contraseña
+                // Visibilidad de contraseña
                 document.getElementById('toggle-password').addEventListener('click', () => {
                     const passwordInput = document.getElementById('clave');
                     const isPasswordVisible = passwordInput.type === 'text';

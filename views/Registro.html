@@ -42,30 +42,30 @@
                     const password = document.getElementById('clave').value;
                     const confirmPassword = document.getElementById('confirmClave').value;
 
-                    //Validaciones
-                    if(password == "" || email == "" || confirmPassword == ""){
+                    // Validaciones
+                    if(password === "" || email === "" || confirmPassword === ""){
                         alert ('Correo o contraseña vacia, debe diligenciar todos los campos');
-                        return; // Salir de la función
+                        return;
                     }
 
                     let correoRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                     if (!correoRegex.test(email)) {
                         alert('El correo electrónico no es válido, debe contener "@" y un dominio válido como "gmail.com"');
-                        return; // Salir de la función
+                        return;
                     }
                     
                     if (password !== confirmPassword) {
                         alert('Las contraseñas no coinciden');
-                        return; // Salir de la función
+                        return;
                     }
 
                     if(password.length < 12){
                         alert('La contraseña debe tener como mínimo 12 caracteres');
-                        return; // Salir de la función
+                        return;
                     }
 
                     let contieneMayuscula = password.split('').some(caracter => caracter >= 'A' && caracter <= 'Z');
-                    let contieneNumero = /\d/.test(password); // \d es una expresión regular que busca dígitos
+                    let contieneNumero = /\d/.test(password);
 
                     if (contieneMayuscula && contieneNumero) {
                         // La contraseña es válida
@@ -78,8 +78,8 @@
                         }
                     }
 
-                    //Envío de datos
-                    if(password != "" && email != "" && confirmPassword != "" && correoRegex.test(email) && password === confirmPassword && password.length >= 12 && contieneMayuscula && contieneNumero){
+                    // Envío de datos
+                    if(password !== "" && email !== "" && confirmPassword !== "" && correoRegex.test(email) && password === confirmPassword && password.length >= 12 && contieneMayuscula && contieneNumero){
                         try {
                             const response = await fetch('/register', {
                                 method: 'POST',
@@ -98,12 +98,11 @@
                         } catch (error) {
                             alert('Error en el registro');
                             console.error('Error:', error);
-                            
                         }
                     }
                 });
 
-                //Visibilidad de contraseña
+                // Visibilidad de contraseña
                 document.getElementById('toggle-password').addEventListener('click', () => {
                     const passwordInput = document.getElementById('clave');
                     const confirmPasswordInput = document.getElementById('confirmClave');

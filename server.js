@@ -1,12 +1,10 @@
 import express from 'express';
-import { PrismaClient } from '@prisma/client';
 import bodyParser from 'body-parser';
-import bcrypt from 'bcryptjs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import Usuario from './models/models.js'; // Importar la clase Usuario
 
-const prisma = new PrismaClient();
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -24,36 +22,27 @@ app.get('/', (req, res) => {
 // Ruta para registro de usuario
 app.post('/register', async (req, res) => {
   const { email, password } = req.body;
-  const hashedPassword = await bcrypt.hash(password, 10);
-  
+
   try {
-    const user = await prisma.user.create({
-      data: {
-        email,
-        password: hashedPassword,
-      },
-    });
-    res.status(201).json(user);
+    const usuario = new Usuario(email, password);
+    const nuevoUsuario = await usuario.registrar();
+    res.status(201).json(nuevoUsuario);
   } catch (error) {
-    res.status(400).json({ error: 'El usuario ingresado ya existe' });
+    res.status(400).json({ error: error.message });
   }
 });
 
 // Ruta para inicio de sesión
 app.post('/login', async (req, res) => {
-    const { email, password } = req.body;
-    
-    try {
-      const user = await prisma.user.findUnique({ where: { email } });
-      if (user && await bcrypt.compare(password, user.password)) {
-        res.status(200).json({ message: 'Login successful', user });
-      } else {
-        res.status(401).json({ error: 'Invalid email or password' });
-      }
-    } catch (error) {
-      res.status(500).json({ error: 'Internal server error' });
-    }
-  });
+  const { email, password } = req.body;
+
+  try {
+    const usuario = await Usuario.iniciarSesion(email, password);
+    res.status(200).json({ message: 'Login successful', user: usuario });
+  } catch (error) {
+    res.status(401).json({ error: error.message });
+  }
+});
 
 // Iniciar servidor
 app.listen(3000, () => {
