@@ -1,9 +1,14 @@
+import { PrismaClient } from '@prisma/client';
 import express from 'express';
 import bodyParser from 'body-parser';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import Usuario from './models/models.js'; // Importar la clase Usuario
+import dotenv from 'dotenv';
+dotenv.config();
+
+const prisma = new PrismaClient();
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
