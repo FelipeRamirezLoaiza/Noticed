@@ -6,18 +6,13 @@ body {
     flex-direction: column;
 }
 
-.container {
-    position: relative;
-    top: 0;
-}
-
-.container h1{
+.container-text h1{
     font-size: 50px;
     color: #333;
     margin-left: 60px;
 }
 
-.container p{
+.container-text p{
     font-size: 17px;
     color: #333;
     max-width: 50%;
@@ -26,9 +21,9 @@ body {
     margin-left: -250px;
 }
 
-.imagen-derecha {
+.container-image {
     position: absolute;
-    top: 10px;
+    top: 180px;
     right: 0;
     margin-right: 105px;
     width: 30%;
