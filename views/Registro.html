@@ -81,7 +81,7 @@
                     // Envío de datos
                     if(password !== "" && email !== "" && confirmPassword !== "" && correoRegex.test(email) && password === confirmPassword && password.length >= 12 && contieneMayuscula && contieneNumero){
                         try {
-                            const response = await fetch('/register', {
+                            const response = await fetch('http://localhost:3000/register', {
                                 method: 'POST',
                                 headers: {
                                     'Content-Type': 'application/json',
@@ -91,6 +91,7 @@
 
                             if (response.ok) {
                                 alert('Usuario registrado con éxito');
+                                window.location.href = '/views/Inicio.html'; // Redirigir al inicio de sesión
                             } else {
                                 const errorData = await response.json();
                                 alert(`Error en el registro: ${errorData.error}`);

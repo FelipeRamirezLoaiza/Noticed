@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import Usuario from './models/models.js'; // Importar la clase Usuario
 import dotenv from 'dotenv';
+import cors from 'cors';
 dotenv.config();
 
 const prisma = new PrismaClient();
@@ -15,6 +16,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // Configurar middleware
+app.use(cors());
 app.use(express.static(path.join(__dirname, 'views')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
