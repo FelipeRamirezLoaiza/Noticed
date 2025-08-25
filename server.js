@@ -1,33 +1,47 @@
-import { PrismaClient } from '@prisma/client';
-import express from 'express';
-import bodyParser from 'body-parser';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-import Usuario from './models/models.js'; // Importar la clase Usuario
-import dotenv from 'dotenv';
-import cors from 'cors';
+import express from "express";
+import bodyParser from "body-parser";
+import path, { dirname } from "path";
+import { fileURLToPath } from "url";
+import { PrismaClient } from "@prisma/client";
+import dotenv from "dotenv";
+import cors from "cors";
+
+// Importar modelo de Usuario
+import Usuario from "./models/models.js";
+
 dotenv.config();
 
+const app = express();
 const prisma = new PrismaClient();
 
-const app = express();
+// Rutas absolutas para usar con path
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Configurar middleware
+/*
+  MIDDLEWARES
+*/
 app.use(cors());
-app.use(express.static(path.join(__dirname, 'views')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Ruta para servir el archivo HTML
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'Inicio.html'));
+// Archivos estáticos (CSS, JS, imágenes)
+app.use("/assets", express.static(path.join(__dirname, "assets")));
+app.use("/scripts", express.static(path.join(__dirname, "scripts")));
+app.use("/layout", express.static(path.join(__dirname, "views/layout")));
+app.use("/", express.static(path.join(__dirname, "views")));
+
+/*
+  RUTAS
+*/
+
+// Página principal
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "Index.html"));
 });
 
-// Ruta para registro de usuario
-app.post('/register', async (req, res) => {
+// Registro de usuario
+app.post("/register", async (req, res) => {
   const { email, password } = req.body;
 
   try {
@@ -39,19 +53,25 @@ app.post('/register', async (req, res) => {
   }
 });
 
-// Ruta para inicio de sesión
-app.post('/login', async (req, res) => {
+// Inicio de sesión
+app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   try {
     const usuario = await Usuario.iniciarSesion(email, password);
-    res.status(200).json({ message: 'Login successful', user: usuario });
+    res.status(200).json({ message: "Login successful", user: usuario });
   } catch (error) {
     res.status(401).json({ error: error.message });
   }
 });
 
-// Iniciar servidor
-app.listen(3000, () => {
-  console.log('Server is running on http://localhost:3000');
+/*
+  SERVIDOR
+*/
+
+const PORT = process.env.PORT;
+const BASE_URL = process.env.BASE_URL;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on ${BASE_URL}`);
 });

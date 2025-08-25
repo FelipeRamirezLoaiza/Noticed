@@ -8,15 +8,8 @@
     <link rel="stylesheet" href="/assets/css/StyleNosotros.css?v=1.0">
 </head>
 <body>
-    <!-- Header -->
     <div id="header-placeholder"></div>
-    <script>
-        fetch('/views/layout/Header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-            });
-    </script>
+    <script type="module" src="/scripts/Header.js"></script>
     <div class="container-text">
         <h1>SOMOS</h1>
         <P>La manera que hemos encontrado para perdurar es tratándonos con rigor y amor al mismo tiempo,
@@ -55,14 +48,7 @@
     <div class="container-image">
         <img src="/assets/img/slider1.png"><br><br><br><br><br><br><br><br><br>
     </div>
-    <!-- Footer -->
     <div id="footer-placeholder"></div>
-    <script>
-        fetch('/views/layout/Footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            });
-    </script>
+    <script type="module" src="/scripts/Footer.js"></script>
 </body>
 </html>

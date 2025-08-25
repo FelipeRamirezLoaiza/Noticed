@@ -7,16 +7,9 @@
     <link rel="icon" type="image/png" href="/assets/img/dominioo.png">
     <link rel="stylesheet" href="/assets/css/StyleTienda.css?v=1.0">  
 </head>
-<div id="header-placeholder"></div>
-
-    <script>
-        fetch('/views/layout/Header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-            });
-    </script>
 <body>
+    <div id="header-placeholder"></div>
+    <script type="module" src="/scripts/Header.js"></script>
     <section class="productos">
         <div class="product">
             <a href="#"><img src="/assets/img/option1.png" alt=""></a>
@@ -158,14 +151,7 @@
             </div>
         </div>
     </div>
+    <div id="footer-placeholder"></div>
+    <script type="module" src="/scripts/Footer.js"></script>
 </body>
-<div id="footer-placeholder"></div>
-
-    <script>
-        fetch('/views/layout/Footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            });
-    </script>
 </html>
