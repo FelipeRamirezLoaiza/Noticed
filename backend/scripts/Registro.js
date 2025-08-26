@@ -54,7 +54,7 @@ document.getElementById('register').addEventListener('submit', async (e) => {
 
                             if (response.ok) {
                                 alert('Usuario registrado con éxito');
-                                window.location.href = '/Inicio.html'; // Redirigir al inicio de sesión
+                                window.location.href = '/views/Inicio.html'; // Redirigir al inicio de sesión
                             } else {
                                 const errorData = await response.json();
                                 alert(`Error en el registro: ${errorData.error}`);

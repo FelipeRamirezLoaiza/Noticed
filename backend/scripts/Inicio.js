@@ -30,7 +30,7 @@ document.getElementById('login').addEventListener('submit', async (e) => {
                             const data = await response.json();
                             alert('Inicio de sesión exitoso');
                             console.log('Usuario:', data.user);
-                            window.location.href = '/Index.html'; // Redirigir a la página
+                            window.location.href = '/views/Index.html'; // Redirigir a la página
                         } else {
                             alert('Email o contraseña incorrectos');
                         }

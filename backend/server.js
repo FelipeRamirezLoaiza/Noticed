@@ -26,10 +26,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Archivos estáticos (CSS, JS, imágenes)
-app.use("/assets", express.static(path.join(__dirname, "assets")));
-app.use("/scripts", express.static(path.join(__dirname, "scripts")));
-app.use("/layout", express.static(path.join(__dirname, "views/layout")));
-app.use("/", express.static(path.join(__dirname, "views")));
+app.use("/assets", express.static(path.join(__dirname, "..", "assets")));
+app.use("/layout", express.static(path.join(__dirname, "..", "views", "layout")));
+app.use("/backend/scripts", express.static(path.join(__dirname, "scripts")));
+app.use("/views", express.static(path.join(__dirname, "..", "views")));
 
 /*
   RUTAS
@@ -37,7 +37,7 @@ app.use("/", express.static(path.join(__dirname, "views")));
 
 // Página principal
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "Index.html"));
+  res.sendFile(path.join(__dirname, "..", "views", "Index.html"));
 });
 
 // Registro de usuario
